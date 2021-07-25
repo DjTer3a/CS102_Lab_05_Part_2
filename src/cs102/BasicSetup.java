@@ -1,5 +1,6 @@
-package cs102;
 
+
+package cs102;
 
 public class BasicSetup implements IHangmanSetup
 {

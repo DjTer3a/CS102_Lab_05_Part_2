@@ -1,5 +1,4 @@
 package cs102;
-import cs102.Hangman;
 import java.util.Scanner;
 
 // ConsoleControl

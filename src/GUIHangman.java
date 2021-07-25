@@ -11,15 +11,16 @@ import javax.swing.*;
 
 public class GUIHangman
 {
-	public GUIHangman()
+
+	public static void main( String[] args)
 	{
-    	System.out.println( "Start of GUIHangman\n");
+		System.out.println( "Start of GUIHangman\n");
 
 		JFrame 				frame;
-		HangmanModel		hangman;
+		HangmanModel		model;
 		IHangmanSetup		basicSetup;
 		ConsoleHangmanView	consoleView;
-
+		HangmanGUIPanel 	view;
 
 		frame = new JFrame("Hangman GUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,34 +30,17 @@ public class GUIHangman
 
 
 		basicSetup = new BasicSetup();
-		hangman = new HangmanModel( basicSetup);
+		model = new HangmanModel( basicSetup);
 
 		consoleView = new ConsoleHangmanView();
-		hangman.addView( consoleView);
+		model.addView( consoleView);
 
-		new SimpleJFrame( "GUIHangman", 	// title
-							null,			// center
-							null, null,		// north, south
-							null, null );	// east, west
+		view = new HangmanGUIPanel(model);
+		frame.add(view);
 
-		// this is an infinite loop reading from the console... not clever!
-		ConsoleControl.controlFor( hangman);
-	}
+		frame.pack();
+		frame.setVisible(true);
 
-	public static void main( String[] args)
-	{
-		new GUIHangman();
-
-//		// This is the approved way to initialise GUIs
-//		// but won't work with the ConsoleControl as is!
-//		// --------------------------------------------
-//		SwingUtilities.invokeLater(
-//			new Runnable() {
-//			    public void run() {
-//	        		new GUIHangman();
-//	        		new GUIHangman();
-//	    		}
-//			});
 	}
 
 } // end of class GUIHangman
