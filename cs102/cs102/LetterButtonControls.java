@@ -13,7 +13,7 @@ public class LetterButtonControls extends JPanel
 {
 	public LetterButtonControls( String letters)
 	{
-		this( letters, 2, 13);
+		this( letters, 5, 6);
 	}
 
 	public LetterButtonControls( String letters, int rows, int cols)
@@ -37,19 +37,27 @@ public class LetterButtonControls extends JPanel
 		}
 	}
 
-	public void setEnabledAll( boolean state)
+	public void setEnabledAll( boolean bool)
 	{
 		for ( Component c : getComponents() ) {
-			((JButton) c).setEnabled( state);
+			((JButton) c).setEnabled( bool);
 		}
 	}
 
 	public void setDisabled( String letters)
 	{
+		letters = letters.toUpperCase();
 		for ( Component c : getComponents() ) {
-			char ch = ((JButton) c).getLabel().charAt(0);
+			char ch = ((JButton) c).getText().charAt(0);
+			ch = Character.toUpperCase(ch);
 			if ( letters.indexOf(ch) >= 0)
 				((JButton) c).setEnabled( false);
+		}
+	}
+
+	public void setButtonColor(boolean enabled){
+		for ( Component c : getComponents() ) {
+			((JButton) c).setBackground(Color.LIGHT_GRAY);
 		}
 	}
 }

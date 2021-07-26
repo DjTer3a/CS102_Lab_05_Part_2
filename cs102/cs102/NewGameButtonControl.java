@@ -9,6 +9,8 @@ public class NewGameButtonControl extends JButton implements ActionListener, IHa
     
     //CONSTRUCTOR
     public NewGameButtonControl(HangmanModel model){
+
+        super("Press to start a New Game");
         this.model = model;
 
         setEnabled(false);
@@ -23,11 +25,8 @@ public class NewGameButtonControl extends JButton implements ActionListener, IHa
 
     @Override
     public void updateView(Hangman hangman){
-        if( !model.isGameOver()){
+        if( model.isGameOver()){
             setEnabled(true);
-        }
-        else{
-            setEnabled(false);
         }
     }
 

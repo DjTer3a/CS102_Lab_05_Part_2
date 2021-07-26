@@ -1,6 +1,10 @@
+package src;
+
 import java.awt.*;
-import cs102.*;
+
 import javax.swing.*;
+
+import cs102.*;
 
 /**
  * GUIHangman - GUI based MVC test for cs102 Hangman & IHangmanSetup
